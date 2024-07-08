@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'radikal-bold';
+  src: url('../fonts/Radikal/radikal-bold.otf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'radikal-light';
+  src: url('../fonts/Radikal/radikal-light.otf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'radikal-medium';
+  src: url('../fonts/Radikal/radikal-medium.otf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'radikal';
+  src: url('../fonts/Radikal/radikal.otf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+
+
+/* Apply the font to the entire body */
+body {
+  font-family: 'radikal', sans-serif;
+}
+
+/* .radikal {
+  font-family: 'radikal-regular', sans-serif;
+} */
+
+.radikal-bold {
+  font-family: 'radikal-bold';
+}
+
+.radikal-medium {
+  font-family: 'radikal-medium';
+}
+
+.radikal-light {
+  font-family: 'radikal-light';
+}
