@@ -17,6 +17,8 @@ import EditTestimonial from '../adminScreen/edittestimonial';
 import Editfaqs from '../adminScreen/editfaqs';
 import Blogs from '../adminScreen/blogs';
 import Orders from "../adminScreen/orders";
+import OrdersForms from "../adminScreen/ordersform"
+import BlogsForms from "../adminScreen/blogsform"
 
 
 export default function AppRouter() {
@@ -37,6 +39,8 @@ export default function AppRouter() {
           <Route path="faqsform" element={<Faqsform />} />
           <Route path="faqs" element={<Faqs />} />
           <Route path="testimonials" element={<Testimonials />} />
+          <Route path="ordersform" element={< OrdersForms />} />
+          <Route path="blogsform" element={< BlogsForms />} />
           <Route path="testimonialform" element={< TestimonialsForms />} />
           <Route path="bookdetails/:id" element={<BookDetails />} />
           <Route path="admindashboard/*" element={<Dashboard />} />

@@ -2,17 +2,14 @@ const mongoose = require("mongoose");
 
 
 const OrderSchema = mongoose.Schema({
+    order_no: {
+        type: String
+    },
     tittle: {
         type: String,
 
     },
-    front_image: {
-        type: String
-    },
-    back_image: {
-        type: String
-    },
-    amazon_url: {
+    image: {
         type: String
     },
     price: {
@@ -21,6 +18,6 @@ const OrderSchema = mongoose.Schema({
 
 });
 
-const OrderModel = mongoose.model("books", OrderSchema);
+const OrderModel = mongoose.model("orders", OrderSchema);
 
 module.exports = OrderModel;

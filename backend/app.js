@@ -7,6 +7,8 @@ const userroute = require("./route/userroute");
 const faqsroute = require('./route/faqsroute');
 const testimonialroute = require('./route/testimonialroute');
 const aboutroute = require('./route/aboutroute');
+const orderroute = require('./route/orderroute');
+const blogsroute = require('./route/blogsroute');
 
 
 
@@ -29,6 +31,8 @@ App.use("/", userroute);
 App.use("/", faqsroute);
 App.use("/", testimonialroute);
 App.use("/", aboutroute);
+App.use("/", orderroute);
+App.use("/", blogsroute);
 
 
 mongoose

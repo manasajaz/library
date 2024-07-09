@@ -12,7 +12,7 @@ function BAbutton(props) {
       <button
         value={value}
         onClick={onClick}
-        className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white p-2  rounded-xl w-100 mb-1"
+        className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white p-2  rounded-xl w-100 mb-1 capitalize"
       >
         {label}
       </button>

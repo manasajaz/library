@@ -77,7 +77,7 @@ export default function States() {
                                             ))}
                                         </tr>
                                     </thead>
-                                    <tbody className="bg-slate-400">
+                                    <tbody className="bg-slate-500">
                                         {userData && userData.length > 0 ? (
                                             userData.map((row, rowIndex) => (
                                                 <tr key={rowIndex} className='border-[#000]/20 border-b'>

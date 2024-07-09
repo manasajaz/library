@@ -8,12 +8,12 @@ import { useState, useEffect } from 'react';
 function Orders() {
     const navigate = useNavigate();
 
-    const Header = ["S.No", "tittle", "description", "image"];
+    const Header = ["order_no", "tittle", "image", "price"];
     const [userData, setuserData] = useState([]);
 
     const GetData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/testimonialget");
+            const response = await axios.get("http://localhost:8000/orderget");
             // console.log("API Response:", response.data);
             console.log(response.data.data);
             setuserData(response.data.data);
@@ -28,7 +28,7 @@ function Orders() {
     const Delete = async (id) => {
 
         try {
-            const response = await axios.delete(`http://localhost:8000/testimonialpost/${id}`, {
+            const response = await axios.delete(`http://localhost:8000/orderpost/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
@@ -44,8 +44,8 @@ function Orders() {
     const Update = async (id) => {
 
         try {
-            navigate(`/edittestimonial/${id}`);
-            const response = await axios.put(`http://localhost:8000/testimonialpost/${id}`, {
+            navigate(`/editorder/${id}`);
+            const response = await axios.put(`http://localhost:8000/orderpost/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
@@ -75,14 +75,14 @@ function Orders() {
                                         ))}
                                     </tr>
                                 </thead>
-                                <tbody className="bg-slate-400">
+                                <tbody className="bg-slate-500">
                                     {userData && userData.length > 0 ? (
                                         userData.map((row, rowIndex) => (
                                             <tr key={rowIndex} className='border-[#000]/20 border-b'>
                                                 {Header.map((col, colIndex) => (
                                                     <td key={colIndex} className='max-w-[550px] mx-auto '>
                                                         {col === "S.No" ? rowIndex + 1 :
-                                                            col === "image" ? <img src={row[col]} alt={row.tittle} className="w-20 h-20 rounded-full object-cover " /> :
+                                                            col === "image" ? <img src={row[col]} alt={row.tittle} className="w-20 h-20 object-cover " /> :
                                                                 row[col]}
                                                     </td>
 
@@ -92,10 +92,10 @@ function Orders() {
                                                         label="Delete"
                                                         onClick={() => Delete(row._id)}
                                                     />
-                                                    <BAbutton
+                                                    {/* <BAbutton
                                                         label="Update"
                                                         onClick={() => Update(row._id)}
-                                                    />
+                                                    /> */}
                                                 </div>
 
                                             </tr>
@@ -109,9 +109,9 @@ function Orders() {
                             </table>
                         </div>
                         <BAbutton
-                            label="Orders"
+                            label="Add Orders"
                             onClick={() => {
-                                navigate("/testimonialform");
+                                navigate("/ordersform");
                             }}
                         />
                     </div>

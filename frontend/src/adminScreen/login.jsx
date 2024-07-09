@@ -30,11 +30,14 @@ export default function Login() {
         }
       });
       console.log(response.data);
+
       if (response.data.isSuccessfull === true) {
         const userRole = response.data.data.user.role;
         const token = response.data.data.token;;
+
         localStorage.setItem("authToken", token);
         localStorage.setItem("role", userRole);
+
         if (userRole === "admin") {
           navigate("/admindashboard");
         } else {

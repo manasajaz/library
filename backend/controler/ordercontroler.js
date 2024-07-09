@@ -17,16 +17,14 @@ const OrderControler = {
 
     post: async (req, res) => {
         try {
-            let { question, answer } = req.body;
-            let obj = { question, answer };
+            let { order_no, tittle, image, price } = req.body;
+            let obj = { order_no, tittle, image, price };
             let errorArray = [];
 
-            if (!obj.question) {
-                errorArray.push("required question");
+            if (!obj.order_no) {
+                errorArray.push("required order_no");
             }
-            if (!obj.answer) {
-                errorArray.push("requiredanswer");
-            }
+
 
 
             if (errorArray.length > 0) {
@@ -80,11 +78,17 @@ const OrderControler = {
     edit: async (req, res) => {
         try {
             let id = req.params.id;
-            let { question, answer } = req.body;
+            let { order_no, tittle, image, price } = req.body;
 
             let updateData = {};
-            if (question) updateData.question = question;
-            if (answer) updateData.answer = answer;
+
+            if (order_no) updateData.order_no = order_no;
+            if (tittle, price) updateData.tittle, price = tittle, price;
+
+            if (req.files.image) {
+                const image = req.files.image[0].buffer.toString('base64');
+                updateData.image = image;
+            }
 
             let updatedUser = await OrderModel.findByIdAndUpdate(id, updateData, { new: true });
 
