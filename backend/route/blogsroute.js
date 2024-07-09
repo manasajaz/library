@@ -7,7 +7,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 
-route.get("/blogsget", BlogControler.get);
+route.get("/f", BlogControler.get);
 route.post("/blogspost", upload.single('image'), BlogControler.post);
 route.put("/blogspost/:id", upload.single('image'), BlogControler.edit);
 route.get("/blogspost/:id", BlogControler.getbyid);

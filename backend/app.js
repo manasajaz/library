@@ -18,11 +18,11 @@ const App = express();
 
 App.use(express.json());
 App.use(cors(
-  // {
-  //   origin: ["https://library.vercel.app"],
-  //   methods: [POST, GET],
-  //   credentials: true
-  // }
+  {
+    origin: ["https://library-63rj.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true
+  }
 ));
 
 App.use("/auth", authroute);
