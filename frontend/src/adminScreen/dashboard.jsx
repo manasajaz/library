@@ -6,7 +6,8 @@ function Dashboard() {
 
     const [userCount, setUserCount] = useState(0);
     const [bookCount, setBookCount] = useState(0);
-
+    const [orderCount, setOrderCount] = useState(0);
+    const [blogCount, setBlogCount] = useState(0);
 
     const fetchUserData = async () => {
         try {
@@ -25,10 +26,28 @@ function Dashboard() {
             console.error("Error fetching user data:", error);
         }
     };
+    const fetchOrderData = async () => {
+        try {
+            const response = await axios.get("http://localhost:8000/orderget");
+            setOrderCount(response.data.data.length);
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
+    };
+    const fetchBlogData = async () => {
+        try {
+            const response = await axios.get("http://localhost:8000/blogsget");
+            setBlogCount(response.data.data.length);
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
+    };
 
     useEffect(() => {
         fetchUserData();
         fetchBookData();
+        fetchOrderData();
+        fetchBlogData();
 
     }, []);
 
@@ -72,7 +91,7 @@ function Dashboard() {
                                 </div>
                             </Link>
                             <div>
-                                <p className='mb-1 radikal-bold'>3</p>
+                                <p className='mb-1 radikal-bold'>{blogCount}</p>
                                 <p className='mb-1 radikal-light'>Blogs</p>
                             </div>
                         </div>
@@ -83,7 +102,7 @@ function Dashboard() {
                                 </div>
                             </Link>
                             <div>
-                                <p className='mb-1 radikal-bold'>4</p>
+                                <p className='mb-1 radikal-bold'>{orderCount}</p>
                                 <p className='mb-1 radikal-light'>Orders</p>
                             </div>
                         </div>

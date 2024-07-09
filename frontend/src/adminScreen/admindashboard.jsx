@@ -38,7 +38,7 @@ import EditBook from "./editbook";
 import my_img from '../asset/images/my_img.png'
 import Dashboard from "./dashboard";
 import Orders from "./orders";
-import Blogs from "./blogs";
+import BlogsForm from "./blogsform";
 import Testimonials from "./testimonials";
 import About from "./about";
 import States from './states';
@@ -89,7 +89,7 @@ function DashboardPage(props) {
         },
         {
             name: "Blogs",
-            route: "blogs",
+            route: "blogsform",
             icon: <BookIcon />,
         },
         {
@@ -237,7 +237,7 @@ function DashboardPage(props) {
                     <Route path="addbook" element={<AddBook />} />
                     <Route path="book" element={<Home />} />
                     <Route path="orders" element={<Orders />} />
-                    <Route path="blogs" element={<Blogs />} />
+                    <Route path="blogsform" element={<BlogsForm />} />
                     <Route path="testimonials" element={<Testimonials />} />
                     <Route path="dashboard" element={<Dashboard />} />
                     <Route path="adduser" element={<UserRegister />} />
