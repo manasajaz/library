@@ -12,7 +12,7 @@ function BlogsDetails() {
 
     const fetchProduct = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/bookpost/${id}`);
+            const response = await axios.get(`http://localhost:8000/blogspost/${id}`);
             console.log(response.data.data)
             setProduct(response.data.data);
         } catch (error) {
@@ -30,31 +30,22 @@ function BlogsDetails() {
 
     return (
         <section className='max-w-7xl mx-auto lg:px-0 px-2 mt-10'>
-
             <div className='bg-[#ffffff] shadow-md p-4 rounded-[10px]'>
-
                 <div className='max-w-7xl mx-auto xl-px-0 px-2'>
                     <div className='grid grid-cols-12 gap-4 mt-10'>
-
-                        <div className="md:col-span-6 col-span-12 h-full">
+                        <div className="col-span-12 h-full">
                             <h1 className='radikal-bold'>{product.tittle}</h1>
                             {/* <p className='radikal-bold text-[20px]'><span>Rs. </span>{product.price}</p> */}
                             <p className=''>{product.short_description}</p>
                             <p className=''>{product.long_description}</p>
-                            <p className=''><span className='rdaikal-medium'>Paper Back Url:</span>{product.paper_back_url}</p>
-                            <div className=''>
-                                <img className='md:mb-0 mb-4' src={product.front_image} alt={product.tittle} />
-                                <img className='md:hidden block ' src={product.back_image} alt={product.tittle} />
+                            <div className='flex md:flex-row md:flex-no-wrap flex-wrap justify-between gap-2'>
+                                <img src={product.image_1} className='my-4 mx-auto' alt={product.image_1} />
+                                <img src={product.image_2} className='my-4 mx-auto' alt={product.image_2} />
+                                <img src={product.image_3} className='my-4 mx-auto' alt={product.image_3} />
                             </div>
                         </div>
 
-                        <div className="md:col-span-6 col-span-12 h-full">
-                            <h1 className='md:block hidden'></h1>
-                            <p className=''><span className='rdaikal-medium'>Amazon Url: </span>{product.amazon_url}</p>
-                            <p><span className='rdaikal-medium'>Audio Book Price: </span>{product.audio_book_price}</p>
-                            <p className=''><span className='rdaikal-medium'>Kindle Url: </span>{product.kindle_url}</p>
-                            <img className='md:block hidden' src={product.back_image} alt={product.tittle} />
-                        </div>
+
                         <div className="col-span-12">
                             <BAbutton onClick={() => navigate('../admindashboard/book')} label="Back" />
                         </div>

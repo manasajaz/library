@@ -82,17 +82,17 @@ function Blogs() {
                             {Array.isArray(bookData) && bookData.length > 0 ? (
                                 bookData.map((x, index) => (
                                     <div key={index} className='col-span-12 border border-[#000] shadow-md p-4 h-full'>
-                                        <Link to={`/bookdetails/${x._id}`} className='no-underline'>
+                                        <Link to={`/blogsdetails/${x._id}`} className='no-underline'>
                                             <h3 className='text-[16px] text-[#000]/70 radikal-light'>{index + 1}</h3>
                                             <h3 className='radikal-bold text-[#000] '>{x.tittle}</h3>
-                                            <img src={x.feature_image} className='my-4 max-w-[500px] mx-auto  mx-auto' alt={x.front_image} />
+                                            <img src={x.feature_image} className='my-4 max-w-[500px] mx-auto  mx-auto' alt={x.feature_image} />
 
                                         </Link>
                                         <p className=''>{x.short_description}</p>
                                         <div className='flex md:flex-row md:flex-no-wrap flex-wrap justify-between gap-2'>
-                                            <img src={x.image_1} className='my-4 md:w-[150px]  mx-auto' alt={x.front_image} />
-                                            <img src={x.image_2} className='my-4 md:w-[150px]  mx-auto' alt={x.back_image} />
-                                            <img src={x.image_3} className='my-4 md:w-[150px]  mx-auto' alt={x.back_image} />
+                                            <img src={x.image_1} className='my-4 md:w-[150px]  mx-auto' alt={x.image_1} />
+                                            <img src={x.image_2} className='my-4 md:w-[150px]  mx-auto' alt={x.image_2} />
+                                            <img src={x.image_3} className='my-4 md:w-[150px]  mx-auto' alt={x.image_3} />
                                         </div>
                                         {/* <h4 className=''><span className='radikal-bold'>Rs.</span> {x.price}</h4> */}
 

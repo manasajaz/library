@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const BlogSchema = mongoose.Schema({
     tittle: {
         type: String,
-
     },
     image_1: {
         type: String
