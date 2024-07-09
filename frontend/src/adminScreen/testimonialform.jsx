@@ -80,14 +80,14 @@ export default function TestimonialsForms() {
                                         />
                                     </div>
                                     <div className="col-span-12">
-                                        <BAinput
-                                            type="text"
+
+                                        <textarea className="p-2  border-2 border-indigo-200 focus:border-indigo-100 w-full outline-none rounded" rows={4} placeholder="Description"
                                             value={bookData.description}
                                             onChange={(e) => {
                                                 handleChange("description", e.target.value);
                                             }}
-                                            label="Book Description"
-                                        />
+                                        ></textarea>
+
                                     </div>
 
                                     <div className="md:col-span-6 col-span-12">

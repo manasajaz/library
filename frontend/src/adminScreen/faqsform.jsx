@@ -68,14 +68,13 @@ function Faqsform() {
                                     />
                                 </div>
                                 <div className="col-span-12">
-                                    <BAinput
-                                        type="text"
+
+                                    <textarea className='p-2  border-2 border-indigo-200 focus:border-indigo-100 w-full outline-none rounded' rows={4} placeholder='Answer'
                                         value={model.answer}
                                         onChange={(e) => {
                                             handleChange("answer", e.target.value);
                                         }}
-                                        label="Answer"
-                                    />
+                                    ></textarea>
                                 </div>
                                 {/* <div className="col-span-12">
                                     <BAinput

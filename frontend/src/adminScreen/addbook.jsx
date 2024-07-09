@@ -139,14 +139,16 @@ export default function AddBook() {
                                         />
                                     </div>
                                     <div className="col-span-12 ">
-                                        <BAinput
-                                            type="text"
-                                            label="long description"
+                                        <textarea
+                                            className='p-2  border-2 border-indigo-200 focus:border-indigo-100 w-full outline-none rounded'
+                                            placeholder='long description'
+                                            rows={4}
                                             value={bookData.long_description}
                                             onChange={(e) => {
                                                 handleChange("long_description", e.target.value);
-                                            }}
-                                        />
+                                            }}>
+
+                                        </textarea>
                                     </div>
 
                                     <div className="md:col-span-4 col-span-12">

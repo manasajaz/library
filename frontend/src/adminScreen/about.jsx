@@ -115,14 +115,24 @@ export default function About() {
                                         />
                                     </div>
                                     <div className="col-span-12">
-                                        <BAinput
+                                        {/* <BAinput
                                             type="text"
                                             value={bookData.Description}
                                             onChange={(e) => {
                                                 handleChange("Description", e.target.value);
                                             }}
                                             label="Description"
-                                        />
+                                        /> */}
+                                        <textarea
+                                            className='p-2  border-2 border-indigo-200 focus:border-indigo-100 w-full outline-none rounded'
+                                            placeholder='Description'
+                                            rows={4}
+                                            value={bookData.Description}
+                                            onChange={(e) => {
+                                                handleChange("Description", e.target.value);
+                                            }}>
+
+                                        </textarea>
                                     </div>
 
                                     <div className="md:col-span-6 col-span-12">

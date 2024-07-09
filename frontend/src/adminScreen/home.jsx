@@ -32,25 +32,6 @@ function Home() {
         } else {
             alert("You are not admin");
         }
-
-        // if (role === "admin") {
-        //     try {
-        //         navigate(`/editbook/${id}`);
-        //         const response = await axios.put(`http://localhost:8000/bookpost/${id}`, {
-        //             headers: {
-        //                 Authorization: `Bearer ${localStorage.getItem('authToken')}`
-        //             }
-        //         });
-
-        //     }
-        //     catch (error) {
-        //         console.error("Error fetching data:", error);
-        //     }
-        // }
-        // else {
-        //     alert("You are not admin");
-        // }
-
     }
 
     const Add = async () => {
@@ -92,20 +73,20 @@ function Home() {
         <>
             <section className='mt-10'>
                 <div className='bg-[#ffffff] shadow-md p-4 rounded-[10px]'>
-                    <div className=''>
+                    <div className='max-w-7xl mx-auto px-2 lg:px-0'>
                         <div className='grid grid-cols-12 gap-4'>
                             <div className="col-span-12 ">
                                 <BAbutton onClick={() => Add()} label="Add Book" />
                             </div>
                             {Array.isArray(bookData) && bookData.length > 0 ? (
                                 bookData.map((x, index) => (
-                                    <div key={index} className='md:col-span-4 col-span-12 border border-[#000] shadow-md p-4'>
-                                        <Link to={`/bookdetails/${x._id}`}>
-                                            <h3 className='text-[16px] text-[#000] '>{index + 1}</h3>
+                                    <div key={index} className='lg:col-span-4 sm:col-span-6 col-span-12 border border-[#000] shadow-md p-4 h-full'>
+                                        <Link to={`/bookdetails/${x._id}`} className='no-underline'>
+                                            <h3 className='text-[16px] text-[#000]/70 radikal-light'>{index + 1}</h3>
                                             <h3 className='radikal-bold text-[#000] '>{x.tittle}</h3>
-                                            <div className=''>
-                                                <img src={x.front_image} className='my-4 w-[150px]' alt={x.front_image} />
-                                                <img src={x.back_image} className='my-4 w-[150px]' alt={x.back_image} />
+                                            <div className='flex md:flex-row md:flex-no-wrap flex-wrap justify-between gap-2'>
+                                                <img src={x.front_image} className='my-4 md:w-[150px]  mx-auto' alt={x.front_image} />
+                                                <img src={x.back_image} className='my-4 md:w-[150px]  mx-auto' alt={x.back_image} />
                                             </div>
                                         </Link>
                                         <p className=''>{x.short_description}</p>

@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import login from "../asset/images/login.svg"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Login() {
   const [model, setModel] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const fillModel = (key, val) => {
@@ -71,16 +74,22 @@ export default function Login() {
                   onChange={(e) => fillModel("userName", e.target.value)}
                 />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 relative">
                 <label className="text-sm font-medium text-gray-700 tracking-wide">
                   Password
                 </label>
                 <BAinput
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   label="password"
                   value={model.password}
                   onChange={(e) => fillModel("password", e.target.value)}
                 />
+                <span
+                  className="absolute right-2 top-9 cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </span>
               </div>
               <div className="flex items-center">
                 <input id="remember_me" name="remember_me" type="checkbox" className="h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded" />

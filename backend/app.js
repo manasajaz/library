@@ -13,6 +13,7 @@ const aboutroute = require('./route/aboutroute');
 const cors = require("cors")
 const App = express();
 
+
 App.use(express.json());
 App.use(cors(
   // {

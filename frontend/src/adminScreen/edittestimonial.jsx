@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import BAinput from "../component/input";
 import BAbutton from "../component/button";
 import axios from "axios";
@@ -9,6 +9,9 @@ function EditTestimonial() {
 
     const [bookData, setbookData] = useState({});
     const [image, setImage] = useState(null);
+
+    const { id } = useParams();
+
 
 
     // const handleChange = (key, val) => {
@@ -40,6 +43,27 @@ function EditTestimonial() {
         BookRegister(); // Call your custom submit handler
     };
 
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/testimonialpost/${id}`);
+                const userData = response.data.data;
+                console.log(userData);
+                setbookData({
+                    tittle: userData.tittle,
+                    description: userData.description,
+                    image: userData.image
+
+
+                });
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }
+        };
+
+        fetchUserData();
+    }, [id]);
+
 
     const BookRegister = async (e) => {
 
@@ -51,7 +75,7 @@ function EditTestimonial() {
 
         }
         try {
-            const response = await axios.put("http://localhost:8000/testimonialpost", formData);
+            const response = await axios.put(`http://localhost:8000/testimonialpost/${id}`, formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/testimonials');
@@ -82,14 +106,12 @@ function EditTestimonial() {
                                         />
                                     </div>
                                     <div className="col-span-12">
-                                        <BAinput
-                                            type="text"
+                                        <textarea className="p-2  border-2 border-indigo-200 focus:border-indigo-100 w-full outline-none rounded" rows={4} placeholder="Description"
                                             value={bookData.description}
                                             onChange={(e) => {
                                                 handleChange("description", e.target.value);
                                             }}
-                                            label="Book Description"
-                                        />
+                                        ></textarea>
                                     </div>
 
                                     <div className="md:col-span-6 col-span-12">

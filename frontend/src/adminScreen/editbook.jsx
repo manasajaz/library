@@ -94,22 +94,31 @@ export default function EditBook() {
 
     };
 
-    const fetchBook = async () => {
-        try {
-            const response = await axios.get(`http://localhost:8000/bookpost/${id}`);
-            const fetchedBookData = response.data; // Adjust based on your API response structure
-            setbookData(fetchedBookData);
-            setImage({
-                front_image: fetchedBookData.front_image,
-                back_image: fetchedBookData.back_image,
-            });
-        } catch (error) {
-            console.error("Error fetching book data:", error);
-        }
-    };
 
     useEffect(() => {
-        fetchBook();
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/bookpost/${id}`);
+                const userData = response.data.data;
+                console.log(userData);
+                setbookData({
+                    tittle: userData.tittle,
+                    short_description: userData.short_description,
+                    long_description: userData.long_description,
+                    front_image: userData.front_image,
+                    back_image: userData.back_image,
+                    amazon_url: userData.amazon_url,
+                    kindle_url: userData.kindle_url,
+                    paper_back_url: userData.paper_back_url,
+                    audio_book_price: userData.audio_book_price,
+                    price: userData.price,
+                });
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }
+        };
+
+        fetchUserData();
     }, [id]);
 
     return (
@@ -167,14 +176,17 @@ export default function EditBook() {
                                             />
                                         </div>
                                         <div className="col-span-12 ">
-                                            <BAinput
-                                                type="text"
-                                                label="long description"
+
+                                            <textarea
+                                                className='p-2  border-2 border-indigo-200 focus:border-indigo-100 w-full outline-none rounded'
+                                                placeholder='long description'
+                                                rows={4}
                                                 value={bookData.long_description}
                                                 onChange={(e) => {
                                                     handleChange("long_description", e.target.value);
-                                                }}
-                                            />
+                                                }}>
+
+                                            </textarea>
                                         </div>
 
                                         <div className="md:col-span-4 col-span-12">

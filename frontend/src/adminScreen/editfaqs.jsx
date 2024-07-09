@@ -1,14 +1,16 @@
 import React from 'react'
 import BAbutton from '../component/button';
 import BAinput from '../component/input';
-import { useNavigate } from 'react-router';
-import { useState } from "react";
+import { useNavigate, useParams } from 'react-router';
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Editfaqs() {
 
     const [model, setModel] = useState({});
     const navigate = useNavigate();
+    const { id } = useParams();
+
 
     const handleChange = (key, val) => {
         model[key] = val;
@@ -23,6 +25,26 @@ function Editfaqs() {
 
 
 
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/faqspost/${id}`);
+                const userData = response.data.data;
+                console.log(userData);
+                setModel({
+                    question: userData.question,
+                    answer: userData.answer,
+
+                });
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }
+        };
+
+        fetchUserData();
+    }, [id]);
+
+
     let Addfaqs = async (e) => {
 
         console.log(model);
@@ -31,7 +53,7 @@ function Editfaqs() {
             "answer": model.answer,
         }
         try {
-            const response = await axios.put("http://localhost:8000/faqspost", formData);
+            const response = await axios.put(`http://localhost:8000/faqspost/${id}`, formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/faqs');
@@ -65,25 +87,14 @@ function Editfaqs() {
                                     />
                                 </div>
                                 <div className="col-span-12">
-                                    <BAinput
-                                        type="text"
+                                    <textarea className='p-2  border-2 border-indigo-200 focus:border-indigo-100 w-full outline-none rounded' rows={4} placeholder='Answer'
                                         value={model.answer}
                                         onChange={(e) => {
                                             handleChange("answer", e.target.value);
                                         }}
-                                        label="Answer"
-                                    />
+                                    ></textarea>
                                 </div>
-                                {/* <div className="col-span-12">
-                                    <BAinput
-                                        type="Boolean"
-                                        label="status"
-                                        value={model.status}
-                                        onChange={(e) => {
-                                            handleChange("status", e.target.value);
-                                        }}
-                                    />
-                                </div> */}
+
 
                                 <div className="p-2 col-span-12">
                                     <BAbutton label={"Submit"} />

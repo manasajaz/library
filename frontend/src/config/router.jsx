@@ -15,6 +15,8 @@ import Testimonials from "../adminScreen/testimonials";
 import TestimonialsForms from "../adminScreen/testimonialform"
 import EditTestimonial from '../adminScreen/edittestimonial';
 import Editfaqs from '../adminScreen/editfaqs';
+import Blogs from '../adminScreen/blogs';
+import Orders from "../adminScreen/orders";
 
 
 export default function AppRouter() {
@@ -26,6 +28,8 @@ export default function AppRouter() {
         <Routes>
           <Route path="signup" element={<Signup />} />
           <Route path="/" element={<Login />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="blogs" element={<Blogs />} />
           <Route path="getuser" element={<GetUser />} />
           <Route path="adduser" element={<UserRegister />} />
           <Route path="addbook" element={<AddBook />} />

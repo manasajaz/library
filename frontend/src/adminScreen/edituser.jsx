@@ -5,12 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function UserEdit() {
-    const [model, setModel] = useState({
-        userName: "",
-        email: "",
-        password: "",
-        cnic: ""
-    });
+    const [model, setModel] = useState({});
 
     const fillModel = (key, val) => {
         model[key] = val;
@@ -24,11 +19,12 @@ export default function UserEdit() {
         const fetchUserData = async () => {
             try {
                 const response = await axios.get(`http://localhost:8000/signup/${id}`);
-                const userData = response.data;
+                const userData = response.data.data;
+                console.log(userData);
                 setModel({
                     userName: userData.userName,
                     email: userData.email,
-                    password: "", // You might not want to pre-fill the password for security reasons
+                    password: userData.password, // You might not want to pre-fill the password for security reasons
                     cnic: userData.cnic
                 });
             } catch (error) {
@@ -38,7 +34,6 @@ export default function UserEdit() {
 
         fetchUserData();
     }, [id]);
-
 
     let UserEdit = async (e) => {
         console.log(model);
@@ -51,7 +46,7 @@ export default function UserEdit() {
             "cnic": model.cnic
         }
         try {
-            const response = await axios.put(`http://localhost:8000/signup${id}`, formData);
+            const response = await axios.put(`http://localhost:8000/signup/${id}`, formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/getuser');
