@@ -35,6 +35,8 @@ App.use("/", aboutroute);
 App.use("/", orderroute);
 App.use("/", blogsroute);
 
+App.get("/", (req, res) => {
+  res.json("aa")
 
 mongoose
   .connect(process.env.MONGO_URI)
