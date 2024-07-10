@@ -20,7 +20,7 @@ App.use(express.json());
 App.use(cors(
   {
     // origin: ["https://library-63rj.vercel.app", "http://localhost:8000"],
-    origin: ["https://library-frontend-ten-blue.vercel.app/"],
+    origin: ["https://library-frontend-ten-blue.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true
   }
