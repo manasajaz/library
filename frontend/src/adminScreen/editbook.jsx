@@ -83,7 +83,7 @@ export default function EditBook() {
             "status": bookData.status,
         }
         try {
-            const response = await axios.put(`http://localhost:8000/bookpost/${id}`, formData);
+            const response = await axios.put(`https://book-library-psi-six.vercel.app/bookpost/${id}`, formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/book');
@@ -98,7 +98,7 @@ export default function EditBook() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/bookpost/${id}`);
+                const response = await axios.get(`https://book-library-psi-six.vercel.app/bookpost/${id}`);
                 const userData = response.data.data;
                 console.log(userData);
                 setbookData({

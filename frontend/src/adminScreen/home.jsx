@@ -15,7 +15,7 @@ function Home() {
     const Delete = async (id) => {
         if (role === "admin") {
             try {
-                const response = await axios.delete(`http://localhost:8000/bookpost/${id}`);
+                const response = await axios.delete(`https://book-library-psi-six.vercel.app/bookpost/${id}`);
                 console.log("Book deleted successfully:", response.data);
                 GetData();
             } catch (error) {
@@ -38,7 +38,7 @@ function Home() {
         if (role === "admin") {
             try {
                 navigate(`/addbook`);
-                const response = await axios.post(`http://localhost:8000/bookpost`, {
+                const response = await axios.post(`https://book-library-psi-six.vercel.app/bookpost`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('authToken')}`
                     }
@@ -57,7 +57,7 @@ function Home() {
 
     const GetData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/bookget");
+            const response = await axios.get("https://book-library-psi-six.vercel.app/bookget");
             // console.log("API Response:", response.data);
             setbookData(response.data.data);
         } catch (error) {

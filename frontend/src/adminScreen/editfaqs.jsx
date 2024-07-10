@@ -28,7 +28,7 @@ function Editfaqs() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/faqspost/${id}`);
+                const response = await axios.get(`https://book-library-psi-six.vercel.app/faqspost/${id}`);
                 const userData = response.data.data;
                 console.log(userData);
                 setModel({
@@ -53,7 +53,7 @@ function Editfaqs() {
             "answer": model.answer,
         }
         try {
-            const response = await axios.put(`http://localhost:8000/faqspost/${id}`, formData);
+            const response = await axios.put(`https://book-library-psi-six.vercel.app/faqspost/${id}`, formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/faqs');

@@ -30,7 +30,7 @@ export default function UserRegister() {
             "cnic": model.cnic
         }
         try {
-            const response = await axios.post("http://localhost:8000/signup", formData);
+            const response = await axios.post("https://book-library-psi-six.vercel.app/signup", formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/getuser');

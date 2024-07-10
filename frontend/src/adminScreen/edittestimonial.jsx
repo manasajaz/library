@@ -46,7 +46,7 @@ function EditTestimonial() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/testimonialpost/${id}`);
+                const response = await axios.get(`https://book-library-psi-six.vercel.app/testimonialpost/${id}`);
                 const userData = response.data.data;
                 console.log(userData);
                 setbookData({
@@ -75,7 +75,7 @@ function EditTestimonial() {
 
         }
         try {
-            const response = await axios.put(`http://localhost:8000/testimonialpost/${id}`, formData);
+            const response = await axios.put(`https://book-library-psi-six.vercel.app/testimonialpost/${id}`, formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/testimonials');

@@ -12,7 +12,7 @@ function BookDetails() {
 
     const fetchProduct = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/bookpost/${id}`);
+            const response = await axios.get(`https://book-library-psi-six.vercel.app/bookpost/${id}`);
             console.log(response.data.data)
             setProduct(response.data.data);
         } catch (error) {

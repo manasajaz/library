@@ -74,7 +74,7 @@ export default function AddBook() {
             "status": bookData.status,
         }
         try {
-            const response = await axios.post("http://localhost:8000/bookpost", formData);
+            const response = await axios.post("https://book-library-psi-six.vercel.app/bookpost", formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/book');

@@ -13,7 +13,7 @@ export default function States() {
 
     const GetData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/signup");
+            const response = await axios.get("https://book-library-psi-six.vercel.app/signup");
             // console.log("API Response:", response.data);
             console.log(response.data.data);
             setuserData(response.data.data);
@@ -28,7 +28,7 @@ export default function States() {
     const Delete = async (id) => {
 
         try {
-            const response = await axios.delete(`http://localhost:8000/signup/${id}`, {
+            const response = await axios.delete(`https://book-library-psi-six.vercel.app/signup/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
@@ -45,7 +45,7 @@ export default function States() {
 
         try {
             navigate(`/edituser/${id}`);
-            const response = await axios.put(`http://localhost:8000/signup/${id}`, {
+            const response = await axios.put(`https://book-library-psi-six.vercel.app/signup/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }

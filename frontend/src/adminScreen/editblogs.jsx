@@ -60,7 +60,7 @@ export default function EditBlogs() {
 
         }
         try {
-            const response = await axios.post("http://localhost:8000/blogspost", formData);
+            const response = await axios.post("https://book-library-psi-six.vercel.app/blogspost", formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/blogs');
@@ -75,7 +75,7 @@ export default function EditBlogs() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/blogspost/${id}`);
+                const response = await axios.get(`https://book-library-psi-six.vercel.app/blogspost/${id}`);
                 const userData = response.data.data;
                 console.log(userData);
                 setbookData({

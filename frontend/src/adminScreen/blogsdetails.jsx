@@ -12,7 +12,7 @@ function BlogsDetails() {
 
     const fetchProduct = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/blogspost/${id}`);
+            const response = await axios.get(`https://book-library-psi-six.vercel.app/blogspost/${id}`);
             console.log(response.data.data)
             setProduct(response.data.data);
         } catch (error) {

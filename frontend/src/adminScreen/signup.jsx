@@ -24,7 +24,7 @@ export default function Signup() {
 
   const handleGoogleSignIn = () => {
     // Redirect to your backend Google authentication route
-    window.location.href = 'http://localhost:8000/auth/google';
+    window.location.href = 'https://book-library-psi-six.vercel.app/auth/google';
   };
 
   let signUpUser = async () => {
@@ -36,7 +36,7 @@ export default function Signup() {
       "role": model.role
     }
     try {
-      const response = await axios.post("http://localhost:8000/auth/signup", formData);
+      const response = await axios.post("https://book-library-psi-six.vercel.app/auth/signup", formData);
       console.log(response.data);
       if (response.data.error == "") {
         navigate('/');

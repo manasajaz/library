@@ -13,7 +13,7 @@ function Orders() {
 
     const GetData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/orderget");
+            const response = await axios.get("https://book-library-psi-six.vercel.app/orderget");
             // console.log("API Response:", response.data);
             console.log(response.data.data);
             setuserData(response.data.data);
@@ -28,7 +28,7 @@ function Orders() {
     const Delete = async (id) => {
 
         try {
-            const response = await axios.delete(`http://localhost:8000/orderpost/${id}`, {
+            const response = await axios.delete(`https://book-library-psi-six.vercel.app/orderpost/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
@@ -45,7 +45,7 @@ function Orders() {
 
         try {
             navigate(`/editorder/${id}`);
-            const response = await axios.put(`http://localhost:8000/orderpost/${id}`, {
+            const response = await axios.put(`https://book-library-psi-six.vercel.app/orderpost/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }

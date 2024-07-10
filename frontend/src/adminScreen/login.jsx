@@ -24,7 +24,7 @@ export default function Login() {
       role: model.role
     };
     try {
-      const response = await axios.post("http://localhost:8000/auth/login", formData, {
+      const response = await axios.post("https://book-library-psi-six.vercel.app/auth/login", formData, {
         headers: {
           'Content-Type': 'application/json'
         }

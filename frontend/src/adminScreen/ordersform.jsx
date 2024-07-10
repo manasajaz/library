@@ -56,7 +56,7 @@ export default function OrdersForm() {
             "price": bookData.price,
         }
         try {
-            const response = await axios.post("http://localhost:8000/orderpost", formData);
+            const response = await axios.post("https://book-library-psi-six.vercel.app/orderpost", formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/orders');

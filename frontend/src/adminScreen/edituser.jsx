@@ -18,7 +18,7 @@ export default function UserEdit() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/signup/${id}`);
+                const response = await axios.get(`https://book-library-psi-six.vercel.app/signup/${id}`);
                 const userData = response.data.data;
                 console.log(userData);
                 setModel({
@@ -46,7 +46,7 @@ export default function UserEdit() {
             "cnic": model.cnic
         }
         try {
-            const response = await axios.put(`http://localhost:8000/signup/${id}`, formData);
+            const response = await axios.put(`https://book-library-psi-six.vercel.app/signup/${id}`, formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/getuser');

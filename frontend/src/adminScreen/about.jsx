@@ -74,7 +74,7 @@ export default function About() {
 
         }
         try {
-            const response = await axios.post("http://localhost:8000/aboutpost", formData);
+            const response = await axios.post("https://book-library-psi-six.vercel.app/aboutpost", formData);
             console.log(response.data);
             if (response.data.error == "") {
                 navigate('/book');

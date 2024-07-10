@@ -11,7 +11,7 @@ function Dashboard() {
 
     const fetchUserData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/signup");
+            const response = await axios.get("https://book-library-psi-six.vercel.app/signup");
             setUserCount(response.data.data.length);
         } catch (error) {
             console.error("Error fetching user data:", error);
@@ -20,7 +20,7 @@ function Dashboard() {
 
     const fetchBookData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/bookget");
+            const response = await axios.get("https://book-library-psi-six.vercel.app/bookget");
             setBookCount(response.data.data.length);
         } catch (error) {
             console.error("Error fetching user data:", error);
@@ -28,7 +28,7 @@ function Dashboard() {
     };
     const fetchOrderData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/orderget");
+            const response = await axios.get("https://book-library-psi-six.vercel.app/orderget");
             setOrderCount(response.data.data.length);
         } catch (error) {
             console.error("Error fetching user data:", error);
@@ -36,7 +36,7 @@ function Dashboard() {
     };
     const fetchBlogData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/blogsget");
+            const response = await axios.get("https://book-library-psi-six.vercel.app/blogsget");
             setBlogCount(response.data.data.length);
         } catch (error) {
             console.error("Error fetching user data:", error);
